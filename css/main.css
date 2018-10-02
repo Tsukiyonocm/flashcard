@@ -1,2 +1,83 @@
+/** Variables
+ ---------------------------------------------------------*/
+/** Reset
+ ---------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
 body {
-  background-color: #444; }
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 2rem; }
+
+/** Input Section
+ ---------------------------------------------------------*/
+.container {
+  max-width: 120rem; }
+
+/** Input Section
+ ---------------------------------------------------------*/
+.input {
+  width: 30rem;
+  height: 100%;
+  padding: 1rem;
+  background-color: #aaa;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; }
+  .input_title {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+    .input_title-label {
+      display: flex;
+      justify-content: center; }
+    .input_title-input {
+      padding: 0.5rem; }
+  .input_question {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+    .input_question-label {
+      display: flex;
+      justify-content: center; }
+    .input_question-input {
+      padding: 0.5rem; }
+  .input_answer {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+    .input_answer-label {
+      display: flex;
+      justify-content: center; }
+    .input_answer-input {
+      padding: 0.5rem; }
+  .input_submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .input_submit-button {
+      margin-top: 1rem;
+      padding: 1rem 1.5rem; }
+  .input_display {
+    width: 100%;
+    padding: 2rem 0 1rem 0; }
+    .input_display-item {
+      text-transform: capitalize;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+
+.input :not(.input_display) div {
+  padding-bottom: 2rem; }

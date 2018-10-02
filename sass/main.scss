@@ -1,5 +1,125 @@
-$primary-color: #444;
+@import "config";
+
+/** Reset
+ ---------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
 
 body {
-    background-color: $primary-color;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 2rem;
+}
+
+/** Input Section
+ ---------------------------------------------------------*/
+.container {
+    max-width: 120rem;
+}
+
+/** Input Section
+ ---------------------------------------------------------*/
+
+.input {
+    width: 30rem;
+    height: 100%;
+    padding: 1rem;
+    background-color: $grey;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    &_title {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &-label {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-input {
+            padding: 0.5rem;
+        }
+    }
+
+    &_question {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        &-label {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-input {
+            padding: 0.5rem;
+        }
+    }
+
+    &_answer {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        &-label {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-input {
+            padding: 0.5rem;
+        }
+    }
+
+    &_submit {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-button {
+            margin-top: 1rem;
+            padding: 1rem 1.5rem;
+        }
+    }
+    
+    &_display {
+        // background-color: red;
+        width: 100%;
+        padding: 2rem 0 1rem 0;
+
+
+        
+        &-item {
+            text-transform: capitalize;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+    }
+}
+
+.input :not(.input_display) div {
+    padding-bottom: 2rem;
 }
