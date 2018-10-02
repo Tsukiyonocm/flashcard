@@ -1,0 +1,14 @@
+{
+  "name": "flashcard",
+  "version": "1.0.0",
+  "description": "Flashcard app",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w sass/ -o css/ --recursive"
+  },
+  "author": "Craig Menne",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
