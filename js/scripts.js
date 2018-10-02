@@ -14,21 +14,23 @@ let answer = document.querySelector(".input_answer-input");
 let submit = document.querySelector(".input_submit-button");
 let display = document.querySelector(".input_display");
 
-
+// Event Listener on Submit Button for Display Items Idividually
 submit.addEventListener("click", function(){
     questions.push(question.value);
     answers.push(answer.value);
-    createDisplayItem(question.value, answer.value);
+    createDisplayItem();
     inputReset();
-})
+});
 
+
+// Resets inputs to blank after submit
 function inputReset(){
     question.value = "";
     answer.value = "";
-}
+};
 
 
-
+// Creates Each Display Item
 function createDisplayItem(){
     // Create new Div
     let newDiv = document.createElement("div");
@@ -51,12 +53,4 @@ function createDisplayItem(){
     newDiv.appendChild(pQuestion);
     newDiv.appendChild(pAnswer);
     
-    console.log(question.value, answer.value);
-}
-
-
-
-// console.log(title);
-// console.log(question);
-// console.log(answer);
-console.log(display);
+};
