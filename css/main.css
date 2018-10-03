@@ -28,7 +28,6 @@ body {
 /** Input Section
  ---------------------------------------------------------*/
 input[type="text"] {
-  color: #ddd;
   padding: 0.5rem;
   width: auto;
   min-width: 100%;
@@ -86,6 +85,8 @@ input[type="text"] {
       display: flex;
       justify-content: space-between;
       align-items: center; }
+    .input_display-item:nth-child(odd) {
+      background-color: red; }
 
 .input :not(.input_display) div {
   padding-bottom: 2rem; }
