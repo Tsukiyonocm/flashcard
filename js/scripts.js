@@ -33,11 +33,11 @@ function inputReset(){
 // Creates Each Display Item
 function createDisplayItem(){
     // Create new Div
-    let newDiv = document.createElement("div");
+    let newDiv = document.createElement("ul");
 
     // Create Paragraph Elements
-    let pQuestion = document.createElement("p");
-    let pAnswer = document.createElement("p");
+    let pQuestion = document.createElement("li");
+    let pAnswer = document.createElement("li");
 
     // Set classes
     newDiv.className = "input_display-item";

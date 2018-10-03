@@ -24,7 +24,7 @@ body {
     font-size: 2rem;
 }
 
-/** Input Section
+/** Primary Container
  ---------------------------------------------------------*/
 .container {
     max-width: 120rem;
@@ -32,6 +32,13 @@ body {
 
 /** Input Section
  ---------------------------------------------------------*/
+input[type="text"] {
+    color: #ddd;
+    padding: 0.5rem;
+    width: auto;
+    min-width: 100%;
+    line-height: 2rem;
+}
 
 .input {
     width: 30rem;
@@ -101,21 +108,19 @@ body {
             padding: 1rem 1.5rem;
         }
     }
-    
+
     &_display {
         // background-color: red;
         width: 100%;
         padding: 2rem 0 1rem 0;
 
-
-        
         &-item {
             text-transform: capitalize;
-            
+            list-style: none;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-
         }
     }
 }
