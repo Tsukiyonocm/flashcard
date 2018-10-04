@@ -114,7 +114,10 @@ input[type="text"] {
         padding: 2rem 0 1rem 0;
 
         &-item {
+            margin-bottom: 1rem;
+            padding: 0 1rem;
             text-transform: capitalize;
+            background-color: #fff;
             list-style: none;
 
             display: flex;
@@ -123,7 +126,16 @@ input[type="text"] {
         }
 
         &-item:nth-child(odd){
-            background-color: red;
+            background-color: #aaa;
+        }
+
+        &-item:hover {
+            
+        }
+
+        &-delete {
+            height: 1.8rem;
+            width: 1.8rem;
         }
     }
 }

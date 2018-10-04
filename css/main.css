@@ -80,13 +80,19 @@ input[type="text"] {
     width: 100%;
     padding: 2rem 0 1rem 0; }
     .input_display-item {
+      margin-bottom: 1rem;
+      padding: 0 1rem;
       text-transform: capitalize;
+      background-color: #fff;
       list-style: none;
       display: flex;
       justify-content: space-between;
       align-items: center; }
     .input_display-item:nth-child(odd) {
-      background-color: red; }
+      background-color: #aaa; }
+    .input_display-delete {
+      height: 1.8rem;
+      width: 1.8rem; }
 
 .input :not(.input_display) div {
   padding-bottom: 2rem; }

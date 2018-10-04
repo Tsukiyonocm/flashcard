@@ -7,7 +7,6 @@ const questions = [];
 // Array of Answers
 const answers = [];
 
-
 // Selecting Inputs and Button
 let question = document.querySelector(".input_question-input");
 let answer = document.querySelector(".input_answer-input");
@@ -15,42 +14,59 @@ let submit = document.querySelector(".input_submit-button");
 let display = document.querySelector(".input_display");
 
 // Event Listener on Submit Button for Display Items Idividually
-submit.addEventListener("click", function(){
+submit.addEventListener("click", function() {
     questions.push(question.value);
     answers.push(answer.value);
-    createDisplayItem();
+    let trashCan = createDisplayItem();
+    trashCan.addEventListener("click", function(){
+        confirm("Are you sure you want to delete this?")
+        && this.parentNode.remove();
+    })
+    // createDisplayItem();
     inputReset();
 });
 
 
+
+// // Event Listener on Display Items
+// display.addEventListener("click", function(e) {
+    
+// });
+
+
+
 // Resets inputs to blank after submit
-function inputReset(){
+function inputReset() {
     question.value = "";
     answer.value = "";
-};
-
+}
 
 // Creates Each Display Item
-function createDisplayItem(){
+function createDisplayItem() {
     // Create new Div
-    let newDiv = document.createElement("ul");
+    let newUl = document.createElement("ul");
 
-    // Create Paragraph Elements
-    let pQuestion = document.createElement("li");
-    let pAnswer = document.createElement("li");
+    // Create Li and Image Elements
+    let liQuestion = document.createElement("li");
+    let liAnswer = document.createElement("li");
+    let trashCan = document.createElement("img");
+
+    // Set img src
+    trashCan.src = "../assets/trash.svg";
 
     // Set classes
-    newDiv.className = "input_display-item";
-    pQuestion.className = "input_display-question";
-    pAnswer.className = "input_display-answer";
+    newUl.className = "input_display-item";
+    liQuestion.className = "input_display-question";
+    liAnswer.className = "input_display-answer";
+    trashCan.className = "input_display-delete";
 
-    // Set P textContent
-    pQuestion.textContent = question.value;
-    pAnswer.textContent = answer.value;
+    // Set LI textContent
+    liQuestion.textContent = question.value;
+    liAnswer.textContent = answer.value;
 
     // Append Children
-    display.appendChild(newDiv);
-    newDiv.appendChild(pQuestion);
-    newDiv.appendChild(pAnswer);
-    
-};
+    display.appendChild(newUl);
+    newUl.appendChild(liQuestion);
+    newUl.appendChild(liAnswer);
+    return newUl.appendChild(trashCan);
+}
