@@ -27,7 +27,14 @@ body {
 /** Primary Container
  ---------------------------------------------------------*/
 .container {
-    max-width: 120rem;
+    max-width: 140rem;
+    display: flex;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /** Input Section
@@ -98,14 +105,15 @@ input[type="text"] {
 
     &_submit {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
         &-button {
             margin-top: 1rem;
             padding: 1rem 1.5rem;
         }
+    }
+
+    &_start {
+        width: 100%;
     }
 
     &_display {
@@ -125,12 +133,11 @@ input[type="text"] {
             align-items: center;
         }
 
-        &-item:nth-child(odd){
+        &-item:nth-child(odd) {
             background-color: #aaa;
         }
 
         &-item:hover {
-            
         }
 
         &-delete {
@@ -143,3 +150,23 @@ input[type="text"] {
 .input :not(.input_display) div {
     padding-bottom: 2rem;
 }
+
+
+/** Quiz Card
+ ---------------------------------------------------------*/
+
+ .card {
+    width: 100%;
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    &_container {
+        width: 60rem;
+        height: 60rem;
+        background-color: #000;
+    }
+
+ }

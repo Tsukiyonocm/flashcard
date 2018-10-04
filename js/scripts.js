@@ -13,26 +13,20 @@ let answer = document.querySelector(".input_answer-input");
 let submit = document.querySelector(".input_submit-button");
 let display = document.querySelector(".input_display");
 
+
 // Event Listener on Submit Button for Display Items Idividually
 submit.addEventListener("click", function() {
     questions.push(question.value);
     answers.push(answer.value);
+
     let trashCan = createDisplayItem();
     trashCan.addEventListener("click", function(){
-        confirm("Are you sure you want to delete this?")
-        && this.parentNode.remove();
+        // confirm("Are you sure you want to delete this?") && 
+        this.parentNode.remove();
     })
-    // createDisplayItem();
+
     inputReset();
 });
-
-
-
-// // Event Listener on Display Items
-// display.addEventListener("click", function(e) {
-    
-// });
-
 
 
 // Resets inputs to blank after submit
@@ -40,6 +34,14 @@ function inputReset() {
     question.value = "";
     answer.value = "";
 }
+
+// Start Quiz button goes here
+// Button will randomly generate a question
+// upon completing it, will generate a new random question
+// from the array of questions.
+
+
+
 
 // Creates Each Display Item
 function createDisplayItem() {
@@ -70,3 +72,4 @@ function createDisplayItem() {
     newUl.appendChild(liAnswer);
     return newUl.appendChild(trashCan);
 }
+

@@ -23,7 +23,13 @@ body {
 /** Primary Container
  ---------------------------------------------------------*/
 .container {
-  max-width: 120rem; }
+  max-width: 140rem;
+  display: flex; }
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 /** Input Section
  ---------------------------------------------------------*/
@@ -69,13 +75,12 @@ input[type="text"] {
     .input_answer-input {
       padding: 0.5rem; }
   .input_submit {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    width: 100%; }
     .input_submit-button {
       margin-top: 1rem;
       padding: 1rem 1.5rem; }
+  .input_start {
+    width: 100%; }
   .input_display {
     width: 100%;
     padding: 2rem 0 1rem 0; }
@@ -96,3 +101,16 @@ input[type="text"] {
 
 .input :not(.input_display) div {
   padding-bottom: 2rem; }
+
+/** Quiz Card
+ ---------------------------------------------------------*/
+.card {
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .card_container {
+    width: 60rem;
+    height: 60rem;
+    background-color: #000; }
