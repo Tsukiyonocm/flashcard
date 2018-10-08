@@ -41,22 +41,27 @@
             </div>
 
             <div class="input_start flex">
-                <button class="input_submit-button btn">Start Quiz</button>
+                <button class="input_submit-button btn" onclick="generateCard()">Start Quiz</button>
             </div>
         </section>
         
         <section class="card">
-            <div class="card_container"  onclick="this.classList.toggle('flip');">
+            <div class="card_container">
                 <div class="front">
                     <div class="inner">
-                        <p>Content</p>
+                        <p class="quiz_question">Question</p>
                     </div>
                 </div>
 
                 <div class="back">
                     <div class="inner">
-                        <p>content</p>
+                        <p class="quiz_answer">Answer</p>
                     </div>
+                </div>
+
+                <div class="card_container-guess">
+                    <input type="text">
+                    <button  onclick="card.classList.toggle('flip');">Submit Guess</button>
                 </div>
             </div>
         </section>
