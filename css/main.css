@@ -32,6 +32,10 @@ body {
   justify-content: center;
   align-items: center; }
 
+.fadeOut {
+  visibility: hidden;
+  transition: all 0.5s ease-out; }
+
 /** Input Section
  ---------------------------------------------------------*/
 input[type="text"] {
@@ -42,7 +46,7 @@ input[type="text"] {
 
 .input {
   width: 40rem;
-  height: 100%;
+  height: 100vh;
   padding: 1rem;
   background-color: #ccc;
   display: flex;
@@ -75,27 +79,32 @@ input[type="text"] {
       justify-content: center; }
     .input_answer-input {
       padding: 0.5rem; }
+  .input_question-input.error, .input_answer-input.error {
+    border: 2px red solid; }
   .input_submit {
     width: 100%; }
     .input_submit-button {
       margin-top: 1rem;
-      padding: 1rem 1.5rem; }
+      padding: 0 1.5rem; }
   .input_start {
     width: 100%; }
   .input_display {
     width: 100%;
+    font-size: 1.5rem;
     padding: 2rem 0 1rem 0; }
     .input_display-item {
       margin-bottom: 1rem;
-      padding: 0 1rem;
+      padding: .2rem 2rem;
       text-transform: capitalize;
       background-color: #fff;
+      border-radius: 1rem;
       list-style: none;
       display: flex;
       justify-content: space-between;
       align-items: center; }
     .input_display-item:nth-child(odd) {
-      background-color: #aaa; }
+      background-color: #aaa;
+      border-radius: 1rem; }
     .input_display-delete {
       height: 1.8rem;
       width: 1.8rem; }
@@ -192,8 +201,52 @@ input[type="text"] {
     border-radius: 1rem;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #666;
-    opacity: 0.6; }
+    opacity: 0.6;
+    outline: none; }
     .card_container-guess .guess_input:hover, .card_container-guess .guess_input:focus {
       opacity: .8;
       color: #08c;
       box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25); }
+  .card_container-guess-buttons {
+    display: flex;
+    justify-content: space-between; }
+    .card_container-guess-buttons .btnNew {
+      margin: 1rem 2rem; }
+
+.btnNew {
+  height: 5rem;
+  width: 12rem;
+  margin: 1.5rem 3rem 1rem 1rem;
+  font-weight: 700;
+  color: #333;
+  background-image: linear-gradient(top, #f4f1ee, #fff);
+  box-shadow: 0px 8px 30px 1px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
+  border-radius: 5%;
+  position: relative;
+  transition: all .1s linear;
+  outline: none; }
+
+.btnNew:after {
+  color: #e9e6e4;
+  content: "";
+  display: block;
+  font-size: 30px;
+  height: 3rem;
+  text-decoration: none;
+  text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+  position: absolute;
+  width: 3rem; }
+
+.btnNew:hover {
+  background-image: linear-gradient(top, #fff, #f4f1ee);
+  color: #0088cc; }
+
+.btnNew:active {
+  background-image: linear-gradient(top, #efedec, #f7f4f4);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4), inset opx -3px 1px 1px rgba(204, 198, 197, 0.5);
+  outline: none; }
+
+.btnNew:active:after {
+  color: #dbd2d2;
+  text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+  outline: none; }

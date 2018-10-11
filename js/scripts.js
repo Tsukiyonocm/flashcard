@@ -17,24 +17,44 @@ let answer = document.querySelector(".input_answer-input");
 let submit = document.querySelector(".input_submit-button");
 let display = document.querySelector(".input_display");
 let card = document.querySelector(".card_container");
+let start = document.querySelector(".input_start-btn");
 let guessInput = document.querySelector(".guess_input");
 let submitGuess = document.querySelector(".submitGuess");
 let nextQuestion = document.querySelector(".nextQuestion");
 
-// Select P quiz card values
+// Select all display items
+let displayItems = document.getElementsByClassName("input_display-item");
+
+// Select LI quiz card values
 let cardQuestion = document.querySelector(".quiz_question");
 let cardAnswer = document.querySelector(".quiz_answer");
 
 // Event Listener on Submit Button for Display Items Idividually
 submit.addEventListener("click", function() {
-    createObj();
+    if (question.value === "" || answer.value === "") {
+        question.classList.toggle("error");
+        answer.classList.toggle("error");
+    } else {
+        createObj();
 
-    let trashCan = createDisplayItem();
-    trashCan.addEventListener("click", function() {
-        this.parentNode.remove();
-    });
-    inputReset();
-    toggle = questions.length;
+        let trashCan = createDisplayItem();
+        trashCan.dataset.index = questions.length - 1;
+        trashCan.addEventListener("click", function(e) {
+            start.disabled = true;
+            questions.splice(this.dataset.index, 1);
+            // this.parentNode.remove();
+            let thisItem = this.parentNode;
+            fadeOutIn(thisItem, 1000);
+        });
+        inputReset();
+        toggle = questions.length;
+        start.removeAttribute("disabled");
+    }
+});
+
+start.addEventListener("click", function() {
+    generateCard();
+    hideInputs();
 });
 
 // Event Listener to test if guess is correct
@@ -49,6 +69,7 @@ submitGuess.addEventListener("click", function() {
 
 nextQuestion.addEventListener("click", function() {
     card.classList.toggle("flip");
+    guessInput.value = "";
     submitGuess.disabled = false;
     setTimeout(generateCard, 1000);
 });
@@ -65,6 +86,10 @@ function createObj() {
 function inputReset() {
     question.value = "";
     answer.value = "";
+    if (question.classList.contains("error")) {
+        question.classList.toggle("error");
+        answer.classList.toggle("error");
+    }
 }
 
 // Creates Each Display Item
@@ -120,6 +145,23 @@ function random() {
     }
 }
 
-// Notes
-// I need to create a function that upon submit of a guess, checks its value against the answer textContent.
-// I will likely need to make the text lowercase for the check to just make sure that they match exactly and that a capital letter wont create a false when its true.
+// hides all the inputs when start quiz is selected
+function hideInputs(){
+    for(let i = 0; i < displayItems.length; i++){
+        fadeOutIn(displayItems[i], 1000);
+    }
+}
+
+function fadeOutIn(elem, speed){
+    if(!elem.style.opacity){
+        elem.style.opacity = 1;
+    }
+
+    var outInterval = setInterval(function(){
+        elem.style.opacity -= 0.02;
+        if(elem.style.opacity <=0){
+            clearInterval(outInterval);
+            elem.remove();
+        }
+    }, speed/50)
+}

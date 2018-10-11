@@ -29,40 +29,36 @@
             </div>
 
             <div class="input_submit flex">
-                <button class="input_submit-button btn">Submit</button>
+                <button class="input_submit-button btnNew">Submit</button>
             </div>
 
-            <div class="input_display">
-                <!-- <ul class="input_display-item">
-                    <p class="input_display-question">Question 1</p>
-                    <p class="input_dispay-answer">Answer 1</p>
-                    <img src="assets/trash.svg" alt="delete icon" class="input_display-delete">
-                </ul> -->
-            </div>
+            <div class="input_display"></div>
 
             <div class="input_start flex">
-                <button class="input_submit-button btn" onclick="generateCard()">Start Quiz</button>
+                <button type="button" class="input_start-btn btnNew" disabled>Start Quiz</button>
             </div>
         </section>
-        
+
         <section class="card">
             <div class="card_container">
                 <div class="front">
                     <div class="inner">
-                        <p class="quiz_question">Question</p>
+                        <p class="quiz_question">Please Set Some Questions Up</p>
                     </div>
                 </div>
 
                 <div class="back">
                     <div class="inner">
-                        <p class="quiz_answer">Answer</p>
+                        <p class="quiz_answer"></p>
                     </div>
                 </div>
 
                 <div class="card_container-guess">
                     <input type="text" class="guess_input">
-                    <button class="submitGuess">Submit Guess</button>
-                    <button class="nextQuestion">Next Question</button>
+                    <div class="card_container-guess-buttons">
+                        <button class="submitGuess btnNew">Submit Guess</button>
+                        <button class="nextQuestion btnNew">Next Question</button>
+                    </div>
                 </div>
             </div>
         </section>
