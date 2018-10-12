@@ -45,10 +45,16 @@ submit.addEventListener("click", function() {
             // this.parentNode.remove();
             let thisItem = this.parentNode;
             fadeOutIn(thisItem, 1000);
+
+            
+            console.log(questions.length);
         });
         inputReset();
         toggle = questions.length;
         start.removeAttribute("disabled");
+
+
+        console.log(questions.length);
     }
 });
 
@@ -72,6 +78,8 @@ nextQuestion.addEventListener("click", function() {
     guessInput.value = "";
     submitGuess.disabled = false;
     setTimeout(generateCard, 1000);
+
+    console.log(questions.length);
 });
 
 // Create The object for inclusion to array
