@@ -9,9 +9,11 @@
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit; }
 
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%; }
 
@@ -25,11 +27,19 @@ body {
  ---------------------------------------------------------*/
 .container {
   max-width: 180rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .fadeOut {
@@ -49,33 +59,67 @@ input[type="text"] {
   height: 100vh;
   padding: 1rem;
   background-color: #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column; }
   .input_title {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column; }
     .input_title-label {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center; }
     .input_title-input {
       padding: 0.5rem; }
   .input_question {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column; }
     .input_question-label {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center; }
     .input_question-input {
       padding: 0.5rem; }
   .input_answer {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column; }
     .input_answer-label {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center; }
     .input_answer-input {
       padding: 0.5rem; }
@@ -99,8 +143,14 @@ input[type="text"] {
       background-color: #fff;
       border-radius: 1rem;
       list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center; }
     .input_display-item:nth-child(odd) {
       background-color: #aaa;
@@ -115,18 +165,28 @@ input[type="text"] {
 /** Quiz Card
  ---------------------------------------------------------*/
 .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%; }
   .card_container {
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
     width: 60rem;
     margin: 1rem;
     cursor: pointer; }
     .card_container .front {
+      -webkit-transform: rotateY(0deg);
       transform: rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d; }
       .card_container .front:after {
         position: absolute;
@@ -139,6 +199,7 @@ input[type="text"] {
         display: block;
         opacity: 0.6;
         background-color: #000;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         border-radius: 10px; }
     .card_container .back {
@@ -148,15 +209,21 @@ input[type="text"] {
       width: 100%;
       background-color: #cedce7;
       background: linear-gradient(45deg, #dedce7 0%, #596a72 100%);
+      -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg);
+      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d; }
     .card_container .front,
     .card_container .back {
       background-color: red;
       background-size: cover;
       background-position: center;
+      -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
       transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
       transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       text-align: center;
       min-height: 500px;
@@ -166,24 +233,34 @@ input[type="text"] {
       font-size: 1.5rem; }
 
 .flip {
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); }
   .flip .back {
+    -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d; }
   .flip .front {
+    -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d; }
 
 .inner {
+  -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
   transform: translateY(-50%) translateZ(60px) scale(0.94);
   top: 50%;
   position: absolute;
   left: 0;
   width: 100%;
   padding: 2rem;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   outline: 1px solid transparent;
+  -webkit-perspective: inherit;
   perspective: inherit;
   z-index: 2; }
 
@@ -199,6 +276,7 @@ input[type="text"] {
     margin: 1rem auto;
     padding: 1rem;
     border-radius: 1rem;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #666;
     opacity: 0.6;
@@ -206,9 +284,14 @@ input[type="text"] {
     .card_container-guess .guess_input:hover, .card_container-guess .guess_input:focus {
       opacity: .8;
       color: #08c;
+      -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25);
       box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25); }
   .card_container-guess-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between; }
     .card_container-guess-buttons .btnNew {
       margin: 1rem 2rem; }
@@ -219,10 +302,13 @@ input[type="text"] {
   margin: 1.5rem 3rem 1rem 1rem;
   font-weight: 700;
   color: #333;
-  background-image: linear-gradient(top, #f4f1ee, #fff);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f1ee), to(#fff));
+  background-image: linear-gradient(to bottom, #f4f1ee, #fff);
+  -webkit-box-shadow: 0px 8px 30px 1px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
   box-shadow: 0px 8px 30px 1px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
   border-radius: 5%;
   position: relative;
+  -webkit-transition: all .1s linear;
   transition: all .1s linear;
   outline: none; }
 
@@ -238,11 +324,14 @@ input[type="text"] {
   width: 3rem; }
 
 .btnNew:hover {
-  background-image: linear-gradient(top, #fff, #f4f1ee);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f4f1ee));
+  background-image: linear-gradient(to bottom, #fff, #f4f1ee);
   color: #0088cc; }
 
 .btnNew:active {
-  background-image: linear-gradient(top, #efedec, #f7f4f4);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#efedec), to(#f7f4f4));
+  background-image: linear-gradient(to bottom, #efedec, #f7f4f4);
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4), inset opx -3px 1px 1px rgba(204, 198, 197, 0.5);
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4), inset opx -3px 1px 1px rgba(204, 198, 197, 0.5);
   outline: none; }
 
@@ -250,3 +339,12 @@ input[type="text"] {
   color: #dbd2d2;
   text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
   outline: none; }
+
+.quiz_question {
+  animation: fade 5s ease-in-out 1; }
+
+@keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

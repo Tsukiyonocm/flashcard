@@ -343,6 +343,7 @@ input[type="text"] {
     z-index: 2;
 }
 
+
 .front .inner p {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -433,4 +434,15 @@ input[type="text"] {
     color: #dbd2d2;
     text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
     outline: none;
+}
+
+
+// Working on figuring out the correct way to add my animation effects to this portion of the project
+.quiz_question {
+    animation: fade 5s ease-in-out 1;
+}
+
+@keyframes fade{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
