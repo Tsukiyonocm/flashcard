@@ -2,7 +2,7 @@
 const title = document.querySelector(".input_title-input");
 
 // Array of Questions
-const questions = [];
+let questions = [];
 let chosen = [];
 
 // Selected Question
@@ -21,6 +21,7 @@ let start = document.querySelector(".input_start-btn");
 let guessInput = document.querySelector(".guess_input");
 let submitGuess = document.querySelector(".submitGuess");
 let nextQuestion = document.querySelector(".nextQuestion");
+let resetQuiz = document.querySelector(".reset");
 
 // Select all display items
 let displayItems = document.getElementsByClassName("input_display-item");
@@ -45,42 +46,72 @@ submit.addEventListener("click", function() {
             // this.parentNode.remove();
             let thisItem = this.parentNode;
             fadeOutIn(thisItem, 1000);
-
-            
-            console.log(questions.length);
         });
         inputReset();
         toggle = questions.length;
         start.removeAttribute("disabled");
-
-
-        console.log(questions.length);
     }
 });
 
 start.addEventListener("click", function() {
     generateCard();
     hideInputs();
+    submit.disabled = true;
+    start.disabled = true;
 });
 
 // Event Listener to test if guess is correct
 submitGuess.addEventListener("click", function() {
-    if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
+    
+    if (guessInput.value === ""){
+        guessInput.classList.toggle("error");
+        setTimeout(function(){
+            guessInput.classList.toggle("error");
+        }, 1000);
+    }
+    else if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
         card.classList.toggle("flip");
         submitGuess.disabled = true;
-    } else {
-        console.log("wrong or not working");
+        nextQuestion.disabled = false;
+    } 
+    else {
+        // Insert wrong message here
+        cardQuestion.textContent = "You have guessed incorrectly. Please Try Again";
+        // SetTimeout to reset back to Chosen Question
+        setTimeout(function(){
+            cardQuestion.textContent = qChosen.question;
+        }, 1000);
     }
 });
 
+// Selects the Next question
 nextQuestion.addEventListener("click", function() {
     card.classList.toggle("flip");
     guessInput.value = "";
     submitGuess.disabled = false;
     setTimeout(generateCard, 1000);
 
-    console.log(questions.length);
+    // When no questions, hide next Question and unhide reset
+    if (questions.length === 0){
+        nextQuestion.classList.toggle("fadeOut");
+        resetQuiz.classList.toggle("fadeOut");
+    }
 });
+
+resetQuiz.addEventListener("click", function() {
+    questions = [];
+    chosen = [];
+    qChosen = [];
+    toggle = 0;
+    start.disabled = true;
+    submit.disabled = false;
+    cardQuestion.textContent = "Please Set Some Questions Up";
+    resetQuiz.classList.toggle("fadeOut");
+    nextQuestion.classList.toggle("fadeOut");
+    nextQuestion.disabled = true;
+});
+
+
 
 // Create The object for inclusion to array
 function createObj() {
@@ -160,6 +191,8 @@ function hideInputs(){
     }
 }
 
+
+// FadeOut the display items when trashCan is clicked.
 function fadeOutIn(elem, speed){
     if(!elem.style.opacity){
         elem.style.opacity = 1;

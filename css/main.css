@@ -281,6 +281,8 @@ input[type="text"] {
     border: 1px solid #666;
     opacity: 0.6;
     outline: none; }
+    .card_container-guess .guess_input.error {
+      border: 2px red solid; }
     .card_container-guess .guess_input:hover, .card_container-guess .guess_input:focus {
       opacity: .8;
       color: #08c;
@@ -339,3 +341,12 @@ input[type="text"] {
   color: #dbd2d2;
   text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
   outline: none; }
+
+.quiz_question {
+  animation: fade 5s ease-in-out 1; }
+
+@keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
