@@ -281,6 +281,8 @@ input[type="text"] {
     border: 1px solid #666;
     opacity: 0.6;
     outline: none; }
+    .card_container-guess .guess_input.error {
+      border: 2px red solid; }
     .card_container-guess .guess_input:hover, .card_container-guess .guess_input:focus {
       opacity: .8;
       color: #08c;

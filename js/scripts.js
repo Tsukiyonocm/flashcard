@@ -62,10 +62,19 @@ start.addEventListener("click", function() {
 
 // Event Listener to test if guess is correct
 submitGuess.addEventListener("click", function() {
-    if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
+    
+    if (guessInput.value === ""){
+        guessInput.classList.toggle("error");
+        setTimeout(function(){
+            guessInput.classList.toggle("error");
+        }, 1000);
+    }
+    else if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
         card.classList.toggle("flip");
         submitGuess.disabled = true;
-    } else {
+        nextQuestion.disabled = false;
+    } 
+    else {
         // Insert wrong message here
         cardQuestion.textContent = "You have guessed incorrectly. Please Try Again";
         // SetTimeout to reset back to Chosen Question
@@ -99,6 +108,7 @@ resetQuiz.addEventListener("click", function() {
     cardQuestion.textContent = "Please Set Some Questions Up";
     resetQuiz.classList.toggle("fadeOut");
     nextQuestion.classList.toggle("fadeOut");
+    nextQuestion.disabled = true;
 });
 
 
