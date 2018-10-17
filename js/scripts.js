@@ -98,6 +98,8 @@ nextQuestion.addEventListener("click", function() {
     }
 });
 
+
+// Reset the Quiz back to the start
 resetQuiz.addEventListener("click", function() {
     questions = [];
     chosen = [];
@@ -206,3 +208,49 @@ function fadeOutIn(elem, speed){
         }
     }, speed/50)
 }
+
+
+
+
+
+
+
+
+// // Delete Soon after just for reference
+// box.addEventListener("click", function(e){
+//     e.preventDefault;
+//     p.classList.remove("start");
+//     p.classList.add("middle");
+//     p.innerHTML = "wrong answer";
+//     void box.offsetWidth;
+    
+    
+//     setTimeout(function(){
+//         p.classList.add("start");
+//         p.classList.remove("middle");
+//         p.innerHTML = "Original Text";
+//     }, 1950);
+// })
+
+
+// .start {
+//     animation: start 1s ease-in-out;
+//   }
+
+//   .middle {
+//     animation: middle 2s ease-in-out;
+//   }
+  
+  
+
+//   /* and end */
+//   @keyframes start {
+//     0% {opacity: 0;}
+//     100% {opacity: 1;}
+//   }
+
+//   @keyframes middle {
+//     0% {opacity: 0;}
+//     50% {opacity: 1;}
+//     100% {opacity: 0;}
+//   }
