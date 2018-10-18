@@ -60,29 +60,27 @@ start.addEventListener("click", function() {
     start.disabled = true;
 });
 
-// Event Listener to test if guess is correct
-submitGuess.addEventListener("click", function() {
-    
-    if (guessInput.value === ""){
-        guessInput.classList.toggle("error");
-        setTimeout(function(){
-            guessInput.classList.toggle("error");
-        }, 1000);
-    }
-    else if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
-        card.classList.toggle("flip");
-        submitGuess.disabled = true;
-        nextQuestion.disabled = false;
-    } 
-    else {
-        // Insert wrong message here
-        cardQuestion.textContent = "You have guessed incorrectly. Please Try Again";
-        // SetTimeout to reset back to Chosen Question
-        setTimeout(function(){
-            cardQuestion.textContent = qChosen.question;
-        }, 1000);
-    }
-});
+    // Event Listener to test if guess is correct
+    submitGuess.addEventListener("click", function() {
+        if (guessInput.value.toLowerCase() === qChosen.answer.toLowerCase()) {
+          card.classList.toggle("flip");
+          submitGuess.disabled = true;
+        } else {
+          // Insert wrong message here
+          cardQuestion.style.animation="colorfadeerr 0.5s ease-in-out forwards";
+          // SetTimeout to reset back to Chosen Question
+          setTimeout(function(){
+            cardQuestion.style.animation="colorfadequestion 0.3s ease-in-out";            
+          }, 1500);
+        }
+      });
+      
+      cardQuestion.addEventListener("animationstart", function() {
+        if(cardQuestion.textContent === qChosen.question)
+          cardQuestion.textContent = "You have guessed incorrectly. Please Try Again";
+        else
+          cardQuestion.textContent = qChosen.question;
+      });
 
 // Selects the Next question
 nextQuestion.addEventListener("click", function() {
@@ -208,49 +206,3 @@ function fadeOutIn(elem, speed){
         }
     }, speed/50)
 }
-
-
-
-
-
-
-
-
-// // Delete Soon after just for reference
-// box.addEventListener("click", function(e){
-//     e.preventDefault;
-//     p.classList.remove("start");
-//     p.classList.add("middle");
-//     p.innerHTML = "wrong answer";
-//     void box.offsetWidth;
-    
-    
-//     setTimeout(function(){
-//         p.classList.add("start");
-//         p.classList.remove("middle");
-//         p.innerHTML = "Original Text";
-//     }, 1950);
-// })
-
-
-// .start {
-//     animation: start 1s ease-in-out;
-//   }
-
-//   .middle {
-//     animation: middle 2s ease-in-out;
-//   }
-  
-  
-
-//   /* and end */
-//   @keyframes start {
-//     0% {opacity: 0;}
-//     100% {opacity: 1;}
-//   }
-
-//   @keyframes middle {
-//     0% {opacity: 0;}
-//     50% {opacity: 1;}
-//     100% {opacity: 0;}
-//   }

@@ -442,11 +442,29 @@ input[type="text"] {
 
 
 // Working on figuring out the correct way to add my animation effects to this portion of the project
-.quiz_question {
-    animation: fade 5s ease-in-out 1;
-}
+// .quiz_question {
+//     animation: fade 5s ease-in-out 1;
+// }
 
 @keyframes fade{
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+@keyframes colorfadeerr {
+    0% {
+      color: rgba(255,255,255,0.0); }
+    10% {
+      color: rgba(255,255,255,0.0); } 
+    100% {
+      color: rgba(255,200,200,1.0); } 
+      }
+  
+  @keyframes colorfadequestion {
+    0% {
+      color: rgba(255,255,255,0.0); }
+    30% {
+      color: rgba(255,255,255,0.0); } 
+    100% {
+      color: rgba(255,255,255,1.0); } 
+      }
